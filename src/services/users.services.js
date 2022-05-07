@@ -20,7 +20,9 @@ const servicesCreateUser = async (user) => {
   const emailExists = await modelFindByEmail(email);
   if (emailExists) throw errorMessage(conflict, 'Email already registered');
 
-  const createUser = await modelCreateUser(name, email, password)
+  if (!user.role) role = user.role = 'user'
+
+  const createUser = await modelCreateUser(name, email, password, role)
 
   return createUser;
 };

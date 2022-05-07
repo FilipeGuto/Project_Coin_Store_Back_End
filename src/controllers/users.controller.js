@@ -7,8 +7,6 @@ const controllerCreateUser = async (req, res, next) => {
   try {
     const newUser = await servicesCreateUser(req.body);
 
-    if(!newUser.role) newUser.role = 'user';
-
     return res.status(201).json(newUser);
   } catch (error) {
     console.log(`POST CREATE USER -> ${error.message}`);

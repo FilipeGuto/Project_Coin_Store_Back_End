@@ -3,10 +3,10 @@ const connect = require('./connection');
 
 const COLLECTION = 'store_collection';
 
-const modelCreateUser = async (name, email, password) => {
+const modelCreateUser = async (name, email, password, role) => {
   const conn = await connect();
   const { insertedId } = await conn.collection(COLLECTION).insertOne({
-    name, email, password,
+    name, email, password, role,
   });
 
   const user = {
@@ -14,7 +14,8 @@ const modelCreateUser = async (name, email, password) => {
     name: name,
     email: email,
     password: password,
-  }
+    role: role,
+  };
 
   return user;
 };
