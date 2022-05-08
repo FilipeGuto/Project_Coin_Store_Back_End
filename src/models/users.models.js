@@ -1,7 +1,7 @@
 const { ObjectId } = require('mongodb');
 const connect = require('./connection');
 
-const COLLECTION = 'store_collection';
+const COLLECTION = 'users_collection';
 
 const modelCreateUser = async (name, email, password, role) => {
   const conn = await connect();

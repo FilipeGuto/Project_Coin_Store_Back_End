@@ -8,7 +8,7 @@ const errorMessage = require('../utils/errorMessage');
 const userSchema = require('../schema/schema');
 
 const { generateToken } = require('./authService');
-const { badRequest, conflict, unauthorized } = require('../utils/dictionary/stausCode');
+const { badRequest, conflict, unauthorized } = require('../utils/dictionary/statusCode');
 
 const servicesCreateUser = async (user) => {
   const { name, email, password } = user;
