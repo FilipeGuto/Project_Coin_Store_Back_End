@@ -3,10 +3,10 @@ const connect = require('./connection');
 
 const COLLECTION = 'users_collection';
 
-const modelCreateUser = async (name, email, password, role) => {
+const modelCreateUser = async (name, email, password, role, coin) => {
   const conn = await connect();
   const { insertedId } = await conn.collection(COLLECTION).insertOne({
-    name, email, password, role,
+    name, email, password, role, coin
   });
 
   const user = {
@@ -14,10 +14,28 @@ const modelCreateUser = async (name, email, password, role) => {
     name: name,
     email: email,
     password: password,
+    coin: coin,
     role: role,
   };
 
   return user;
+};
+
+const modelFindUsers = async () => {
+  const conn = await connect();
+  const response = await conn.collection(COLLECTION).find().toArray();
+
+  return response;
+};
+
+const modelUpdateUserCoin = async (email, user) => {
+  const conn = await connect();
+
+  const updateCoin = await conn.collection(COLLECTION).updateOne(
+    { email: email }, { $set: { ...user } },
+  );
+
+  return updateCoin;
 };
 
 const modelFindByEmail = async (email) => {
@@ -30,4 +48,6 @@ const modelFindByEmail = async (email) => {
 module.exports = {
   modelCreateUser,
   modelFindByEmail,
+  modelUpdateUserCoin,
+  modelFindUsers,
 };

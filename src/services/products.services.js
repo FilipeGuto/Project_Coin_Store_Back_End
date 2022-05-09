@@ -11,9 +11,9 @@ const errorMessage = require('../utils/errorMessage');
 const { notFound } = require('../utils/dictionary/statusCode');
 
 const servicesCreateProduct = async (product) => {
-  const { title, description, price } = product;
+  const { title, description, price, image } = product;
 
-  const newProduct = await modelCreateProduct(title, description, price);
+  const newProduct = await modelCreateProduct(title, description, price, image);
 
   return newProduct;
 };
@@ -31,8 +31,8 @@ const servicesByIdProduct = async (id) => {
   return productById;
 };
 
-const servicesUpdateProduct = async (id, recipe) => {
-  await modelUpdateProduct(id, recipe);
+const servicesUpdateProduct = async (id, product) => {
+  await modelUpdateProduct(id, product);
 
   const productById = await modelByIdProduct(id);
 

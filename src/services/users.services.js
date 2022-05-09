@@ -1,6 +1,8 @@
 const {
   modelCreateUser,
   modelFindByEmail,
+  modelUpdateUserCoin,
+  modelFindUsers,
 } = require('../models/users.models');
 
 const errorMessage = require('../utils/errorMessage');
@@ -20,11 +22,27 @@ const servicesCreateUser = async (user) => {
   const emailExists = await modelFindByEmail(email);
   if (emailExists) throw errorMessage(conflict, 'Email already registered');
 
-  if (!user.role) role = user.role = 'user'
+  if (!user.role) role = user.role = 'user';
 
-  const createUser = await modelCreateUser(name, email, password, role)
+  if (!user.coin) coin = user.coin = 100;
+
+  const createUser = await modelCreateUser(name, email, password, role, coin)
 
   return createUser;
+};
+
+const servicesFindUsers = async () => {
+  const users = await modelFindUsers();
+
+  return users;
+};
+
+const servicesUpdateUserCoin = async (email, product) => {
+  await modelUpdateUserCoin(email, product);
+
+  const userById = await modelFindByEmail(email);
+
+  return userById;
 };
 
 const servicesLogin = async (user) => {
@@ -45,4 +63,6 @@ const servicesLogin = async (user) => {
 module.exports = {
   servicesCreateUser,
   servicesLogin,
+  servicesUpdateUserCoin,
+  servicesFindUsers,
 };

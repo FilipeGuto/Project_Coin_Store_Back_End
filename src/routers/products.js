@@ -13,7 +13,7 @@ const auth = require('../middlewares/auth');
 
 const routes = express.Router();
 
-routes.post('/products', auth, controllerCreateProduct);
+routes.post('/products', auth, uploadImage.single('image'), controllerCreateProduct);
 routes.get('/products', controllerFindProduct);
 routes.get('/products/:id', controllerByIdProduct);
 routes.put('/products/:id', auth, controllerUpdateProduct);
