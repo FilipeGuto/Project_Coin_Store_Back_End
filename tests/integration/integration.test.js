@@ -176,6 +176,7 @@ describe('POST /products', () => {
           .send({
             title: 'teste',
             description: 'teste',
+            quantity: 10,
             price: 2500,
             image: 'url-image',
           })
@@ -197,6 +198,7 @@ describe('POST /products', () => {
     it('usuario da lista deve conter propriedades e valores corretos', () => {
       expect(response.body.title).to.be.equal(response.body.title);
       expect(response.body.description).to.be.equal(response.body.description);
+      expect(response.body.quantity).to.be.equal(response.body.quantity);
       expect(response.body.price).to.be.equal(response.body.price);
       expect(response.body.image).to.be.equal(response.body.image);
     });
@@ -223,6 +225,7 @@ describe('GET /products', () => {
     it('produto da lista deve conter propriedades e valores corretos', () => {
       expect(response.body[0].title).to.be.equal(response.body[0].title);
       expect(response.body[0].description).to.be.equal(response.body[0].description);
+      expect(response.body[0].quantity).to.be.equal(response.body[0].quantity);
       expect(response.body[0].value).to.be.equal(response.body[0].value);
       expect(response.body[0].image).to.be.equal(response.body[0].image);
     });
@@ -259,6 +262,7 @@ describe('GET /products/:id', () => {
     it('produto da lista deve conter propriedades e valores correto', () => {
       expect(newResponse.body.title).to.be.equal(newResponse.body.title);
       expect(newResponse.body.description).to.be.equal(newResponse.body.description);
+      expect(response.body.quantity).to.be.equal(response.body.quantity);
       expect(newResponse.body.value).to.be.equal(newResponse.body.value);
       expect(newResponse.body.image).to.be.equal(newResponse.body.image);
     });
@@ -281,6 +285,7 @@ describe('PUT /products/:id', () => {
         .send({
           title: "new product",
           description: "new product description",
+          quantity: 5,
           price: 2000,
           image: "image-url"
         })
@@ -302,6 +307,7 @@ describe('PUT /products/:id', () => {
     it('produto da lista deve conter propriedades e valores atualizados', () => {
       expect(newResponse.body.title).to.be.equal(newResponse.body.title);
       expect(newResponse.body.description).to.be.equal(newResponse.body.description);
+      expect(response.body.quantity).to.be.equal(response.body.quantity);
       expect(newResponse.body.value).to.be.equal(newResponse.body.value);
       expect(newResponse.body.image).to.be.equal(newResponse.body.image);
     });

@@ -7,13 +7,24 @@ const {
   modelUploadImg,
 } = require('../models/products.models');
 
+const { productSchema } = require('../schema/schema');
 const errorMessage = require('../utils/errorMessage');
-const { notFound } = require('../utils/dictionary/statusCode');
+const { notFound, badRequest } = require('../utils/dictionary/statusCode');
 
 const servicesCreateProduct = async (product) => {
-  const { title, description, price, image } = product;
+  const { title, description, quantity, price, image } = product;
+  const { error } = productSchema.validate({ 
+    title,
+    description,
+    quantity,
+    price,
+    image,
+  });
+  if (error) {
+    throw errorMessage(badRequest, 'Invalid entries. Try again.');
+  }
 
-  const newProduct = await modelCreateProduct(title, description, price, image);
+  const newProduct = await modelCreateProduct(title, description, quantity, price, image);
 
   return newProduct;
 };

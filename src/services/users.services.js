@@ -7,7 +7,7 @@ const {
 
 const errorMessage = require('../utils/errorMessage');
 
-const userSchema = require('../schema/schema');
+const { userSchema } = require('../schema/schema');
 
 const { generateToken } = require('./authService');
 const { badRequest, conflict, unauthorized } = require('../utils/dictionary/statusCode');

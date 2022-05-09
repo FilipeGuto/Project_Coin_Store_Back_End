@@ -8,4 +8,15 @@ const userSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-module.exports = userSchema;
+const productSchema = Joi.object({
+  title: Joi.string().required(),
+  description: Joi.string().required(),
+  quantity: Joi.number().required(),
+  price: Joi.number().required(),
+  image: Joi.string(),
+})
+
+module.exports = {
+  userSchema,
+  productSchema,
+};

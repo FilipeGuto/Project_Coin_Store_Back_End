@@ -3,16 +3,17 @@ const connect = require('./connection');
 
 const COLLECTION = 'products_collection';
 
-const modelCreateProduct = async (title, description, price, image) => {
+const modelCreateProduct = async (title, description, quantity, price, image) => {
   const conn = await connect();
   const { insertedId } = await conn.collection(COLLECTION).insertOne({
-    title, description, price, image
+    title, description, quantity, price, image
   });
 
   const newProduct = {
     id: ObjectId(insertedId),
     title: title,
     description: description,
+    quantity: quantity,
     price: price,
     image: image,
   };
