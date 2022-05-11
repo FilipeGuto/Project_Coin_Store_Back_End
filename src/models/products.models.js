@@ -55,7 +55,7 @@ const modelUploadImg = async (id, image) => {
   const conn = await connect();
   await conn.collection(COLLECTION).updateOne(
     { _id: ObjectId(id) },
-    { $set: { image: `localhost:3000/src/uploads/${image}` } },
+    { $set: { image: `https://project-voll-back-end.herokuapp.com/src/uploads/${image}` } },
   );
 
   return true;
