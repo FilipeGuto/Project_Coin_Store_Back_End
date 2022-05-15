@@ -3,6 +3,7 @@ const {
   modelFindByEmail,
   modelUpdateUserCoin,
   modelFindUsers,
+  modelDeleteUser,
 } = require('../models/users.models');
 
 const errorMessage = require('../utils/errorMessage');
@@ -60,9 +61,16 @@ const servicesLogin = async (user) => {
   return ({ token });
 };
 
+const servicesDeleteUser = async (id) => {
+  await modelDeleteUser(id);
+
+  return { message: 'User Deleted' }
+};
+
 module.exports = {
   servicesCreateUser,
   servicesLogin,
   servicesUpdateUserCoin,
   servicesFindUsers,
+  servicesDeleteUser,
 };

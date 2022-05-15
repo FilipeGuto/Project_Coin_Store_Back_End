@@ -45,9 +45,15 @@ const modelFindByEmail = async (email) => {
   return userByEmail;
 };
 
+const modelDeleteUser = async (id) => {
+  const conn = await connect();
+  await conn.collection(COLLECTION).deleteOne({ _id: ObjectId(id) });
+};
+
 module.exports = {
   modelCreateUser,
   modelFindByEmail,
   modelUpdateUserCoin,
   modelFindUsers,
+  modelDeleteUser,
 };

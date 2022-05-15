@@ -6,7 +6,7 @@ const routeUsers = require('./src/routers/users');
 const errorMiddlewares = require('./src/middlewares/errorHandler');
 
 const app = express();
-app.use('/images', express.static(path.join(__dirname, 'uploads')));
+app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
 app.use(cors());
 app.use(express.json())
 

@@ -3,6 +3,7 @@ const {
   servicesLogin,
   servicesUpdateUserCoin,
   servicesFindUsers,
+  servicesDeleteUser,
 } = require('../services/users.services');
 
 const { created, success } = require('../utils/dictionary/statusCode');
@@ -53,9 +54,22 @@ try {
 }
 };
 
+const controllerDeleteUser = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await servicesDeleteUser(id);
+
+    return res.status(success).json({ message: 'User deleted successfully' });
+  } catch (error) {
+    console.log(`DELETE USER BY ID -> ${error.message}`);
+    return next(error);
+  }
+};
+
 module.exports = {
   controllerCreateUser,
   controllerLogin,
   controllerUpdateUserCoin,
   controllerFindUsers,
+  controllerDeleteUser,
 };
