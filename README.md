@@ -6,9 +6,7 @@
 
 Esse projeto foi desenvolvido para um teste tecnico.
 
-A proposta era desenvolver uma aplicação full stack de um e-commerce com duas rotas especificas de usuario e admin, e controle de coins.
-A rota ADMN = tem acesso a criação de produtos e atualização de usuario.
-A rota USER = tem acesso aos produtos, preço e descrição, além de ter suas coins visiveis.
+A proposta era desenvolver uma aplicação full stack de um e-commerce com duas rotas especificas de usuario e admin, e controle de coins. A rota ADMN = tem acesso a criação de produtos e atualização de usuario. A rota USER = tem acesso aos produtos, preço e descrição, além de ter suas coins visiveis.
 
 ## Como visualizar este projeto
 
@@ -19,7 +17,7 @@ Projeto feito de forma responsiva para rodar tanto web como mobile.
 
 ## Back-end
 
-A API consta rotas para usuarios: 
+A API consta com rotas para usuarios: 
   * `/` [`POST`] Cria um novo usuario e adiciona no banco
   * `/` [`POST`] Loga com um usuario gerando token e informações no banco
   * `/` [`GET`] Caso tenha um token de autenticação, busca todos usuarios que esta no banco
@@ -28,7 +26,7 @@ A API consta rotas para usuarios:
 
 ---
 
-A API consta rotas para produtos:
+A API consta com rotas para produtos:
   * `/` [`POST`] Cria um novo produto e adiciona no banco (somente acessada pelo admin)
   * `/` [`GET`] Busca todos produtos cadastrados no banco
   * `/` [`PUT`]  Eita dados de um produto cadastrado no banco (somente acessada pelo admin)
@@ -69,7 +67,7 @@ NodeJS, Express, JWT, MongoDb, Chai, Sinon
   </div>
   <br/>
   <div style="display: flex;align-items: center;">
-    <img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"> https://github.com/FilipeGuto
+    <img align="center" alt="github" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"> https://github.com/FilipeGuto
   </div>
   <br/>
    <div style="display: flex;align-items: center;">
