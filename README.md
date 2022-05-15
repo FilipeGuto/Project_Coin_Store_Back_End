@@ -6,7 +6,9 @@
 
 Esse projeto foi desenvolvido para um teste tecnico.
 
-A proposta era desenvolver uma aplicação full stack de um e-commerce com duas rotas especificas de usuario e admin, e controle de coins. A rota ADMN = tem acesso a criação de produtos e atualização de usuario. A rota USER = tem acesso aos produtos, preço e descrição, além de ter suas coins visiveis.
+A proposta era desenvolver uma aplicação full stack de um e-commerce com duas rotas especificas de usuario e admin, e controle de coins.<br>
+A rota ADMN = tem acesso a criação de produtos e atualização de usuario.<br>
+A rota USER = tem acesso aos produtos, preço e descrição, além de ter suas coins visivel.
 
 ## Como visualizar este projeto
 
