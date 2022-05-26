@@ -4,7 +4,6 @@ const {
   servicesByIdProduct,
   servicesUpdateProduct,
   servicesDeleteProduct,
-  servicesUploadImg,
 } = require('../services/products.services');
 
 const { created, success } = require('../utils/dictionary/statusCode');
@@ -67,25 +66,10 @@ const controllerDeleteProduct = async (req, res, next) => {
   }
 };
 
-const controllerUploadImg = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const { filename } = req.file;
-
-    const uploadImage = await servicesUploadImg(id, filename);
-
-    return res.status(success).json(uploadImage);
-  } catch (error) {
-    console.log(`UPLOAD IMG RECIPE BY ID -> ${error.message}`);
-    return next(error);
-  }
-};
-
 module.exports = {
   controllerCreateProduct,
   controllerFindProduct,
   controllerByIdProduct,
   controllerUpdateProduct,
   controllerDeleteProduct,
-  controllerUploadImg,
 };

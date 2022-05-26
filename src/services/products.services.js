@@ -4,7 +4,6 @@ const {
   modelUpdateProduct,
   modelByIdProduct,
   modelDeleteProduct,
-  modelUploadImg,
 } = require('../models/products.models');
 
 const { productSchema } = require('../schema/schema');
@@ -56,19 +55,10 @@ const servicesDeleteProduct = async (id) => {
   return { message: 'Product Delete' }
 };
 
-const servicesUploadImg = async (id, image) => {
-  await modelUploadImg(id, image);
-  
-  const productById = await modelByIdProduct(id);
-
-  return productById;
-};
-
 module.exports = {
   servicesCreateProduct,
   servicesFindProduct,
   servicesByIdProduct,
   servicesUpdateProduct,
   servicesDeleteProduct,
-  servicesUploadImg,
 };

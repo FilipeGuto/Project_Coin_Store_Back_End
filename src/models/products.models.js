@@ -51,21 +51,10 @@ const modelDeleteProduct = async (id) => {
   await conn.collection(COLLECTION).deleteOne({ _id: ObjectId(id) });
 };
 
-const modelUploadImg = async (id, image) => {
-  const conn = await connect();
-  await conn.collection(COLLECTION).updateOne(
-    { _id: ObjectId(id) },
-    { $set: { image: `https://project-voll-back-end.herokuapp.com/src/uploads/${image}` } },
-  );
-
-  return true;
-};
-
 module.exports = {
   modelCreateProduct,
   modelFindProduct,
   modelByIdProduct,
   modelUpdateProduct,
   modelDeleteProduct,
-  modelUploadImg,
 };

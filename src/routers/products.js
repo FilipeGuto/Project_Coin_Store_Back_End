@@ -5,7 +5,6 @@ const {
   controllerByIdProduct,
   controllerUpdateProduct,
   controllerDeleteProduct,
-  controllerUploadImg,
 } = require('../controllers/products.controllers');
 
 const uploadImage = require('../middlewares/imageUpload');
@@ -18,6 +17,5 @@ routes.get('/products', controllerFindProduct);
 routes.get('/products/:id', controllerByIdProduct);
 routes.put('/products/:id', auth, controllerUpdateProduct);
 routes.delete('/products/:id', auth, controllerDeleteProduct);
-routes.put('/products/:id/image/', auth, uploadImage.single('image'), controllerUploadImg);
 
 module.exports = routes;
